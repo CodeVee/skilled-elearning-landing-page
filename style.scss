@@ -1,0 +1,102 @@
+$white: hsl(0, 0%, 100%);
+$deep-red: hsl(341, 92%, 62%);
+$light-red: hsl(341, 100%, 83%);
+$grayish-blue: hsl(232, 10%, 56%);
+$dark-grayish-blue: hsl(234, 25%, 52%);
+$dark-blue: hsl(233, 54%, 16%);
+$gradient-red: linear-gradient(180deg, hsl(322, 87%, 55%) 0%, hsl(13, 100%, 64%) 100%);
+$gradient-blue: linear-gradient(180deg, hsl(237, 100%, 64%) 0%, hsl(322, 87%, 55%) 100%);
+
+$font-jakarta: 'Plus Jakarta Sans', sans-serif;;
+$fw-800: 800;
+$fw-700: 700;
+$fw-500: 500;
+$fs-10: 10px;
+
+$mobile: 375px;
+$mobile-wide: 414px;
+$desktop: 1280px;
+
+@mixin heading {
+    color: $dark-blue;
+    font-weight: $fw-800;
+}
+
+@mixin heading-lg {
+    @include heading;
+    font-size: 4rem;
+    line-height: 5.1rem;
+}
+
+@mixin heading-md {
+    @include heading;
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+
+@mixin heading-sm {
+    @include heading;
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+}
+
+
+@mixin body {
+    color: $grayish-blue;
+}
+
+@mixin body-md {
+    @include body;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    font-weight: $fw-500;
+}
+
+@mixin body-sm {
+    @include body;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    font-weight: $fw-700;
+}
+
+@mixin btn {
+    height: 5.6rem;
+    width: 16.7rem;
+    border-radius: 2.8rem;
+    color: $white;
+}
+
+.container {
+    width: 111rem;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-size: $fs-10;
+    font-family: $font-jakarta;
+}
+
+
+@media screen and (max-width: $desktop) {
+    body, html {
+        font-size: 8.89px;
+    }
+}
+
+@media screen and (max-width: $mobile-wide) {
+    body, html {
+        font-size: 11.04px;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    body, html {
+        font-size: $fs-10;
+    }
+}
