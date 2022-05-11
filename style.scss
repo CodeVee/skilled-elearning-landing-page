@@ -246,6 +246,7 @@ body, html {
             @include body-md;
             margin-bottom: 2.4rem;
             height: 11.2rem;
+            padding-right: .1rem;
         }
 
         &__link {
@@ -254,6 +255,10 @@ body, html {
             font-size: 1.8rem;
             line-height: 2.8rem;
             color: $deep-red;
+
+            &:active {
+                color: $light-red;
+            }
         }
     }
 }
@@ -378,6 +383,7 @@ body, html {
                 line-height: 2.6rem;
                 margin-bottom: 2.4rem;
                 height: initial;
+                padding-right: 0;
             }
         }
     }

@@ -170,6 +170,7 @@ body, html {
   font-weight: 500;
   margin-bottom: 2.4rem;
   height: 11.2rem;
+  padding-right: 0.1rem;
 }
 .card--plain__link {
   text-decoration: none;
@@ -177,6 +178,9 @@ body, html {
   font-size: 1.8rem;
   line-height: 2.8rem;
   color: hsl(341deg, 92%, 62%);
+}
+.card--plain__link:active {
+  color: hsl(341deg, 100%, 83%);
 }
 
 .footer {
@@ -285,6 +289,7 @@ body, html {
     line-height: 2.6rem;
     margin-bottom: 2.4rem;
     height: initial;
+    padding-right: 0;
   }
 }
 @media screen and (max-width: 430px) {
