@@ -4,8 +4,11 @@ $light-red: hsl(341, 100%, 83%);
 $grayish-blue: hsl(232, 10%, 56%);
 $dark-grayish-blue: hsl(234, 25%, 52%);
 $dark-blue: hsl(233, 54%, 16%);
+$gradient-light-blue: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);;
 $gradient-red: linear-gradient(180deg, hsl(322, 87%, 55%) 0%, hsl(13, 100%, 64%) 100%);
 $gradient-blue: linear-gradient(180deg, hsl(237, 100%, 64%) 0%, hsl(322, 87%, 55%) 100%);
+$gradient-red-active: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), $gradient-red;
+$gradient-blue-active: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), $gradient-blue;
 
 $font-jakarta: 'Plus Jakarta Sans', sans-serif;;
 $fw-800: 800;
@@ -13,13 +16,20 @@ $fw-700: 700;
 $fw-500: 500;
 $fs-10: 10px;
 
-$mobile: 375px;
-$mobile-wide: 414px;
+$mobile: 400px;
+$mobile-wide: 430px;
+$tablet: 768px;
 $desktop: 1280px;
 
 @mixin heading {
     color: $dark-blue;
     font-weight: $fw-800;
+}
+
+@mixin heading-xl {
+    @include heading;
+    font-size: 5.6rem;
+    line-height: 7rem;
 }
 
 @mixin heading-lg {
@@ -59,11 +69,41 @@ $desktop: 1280px;
     font-weight: $fw-700;
 }
 
-@mixin btn {
+.btn {
     height: 5.6rem;
     width: 16.7rem;
+    border: none;
+    outline: none;
     border-radius: 2.8rem;
     color: $white;
+    font-size: 1.8rem;
+    font-weight: $fw-700;
+    line-height: 2.8rem;
+    cursor: pointer;
+
+    &--primary {
+        background: $dark-blue;
+
+        &:active {
+            background: $dark-grayish-blue;
+        }
+    }
+
+    &--secondary {
+        background: $gradient-red;
+
+        &:active {
+            background: $gradient-red-active;
+        }
+    }
+
+    &--tetiary {
+        background: $gradient-blue;
+
+        &:active {
+            background: $gradient-blue-active;
+        }
+    }
 }
 
 .container {
@@ -82,6 +122,145 @@ body, html {
     font-family: $font-jakarta;
 }
 
+.body__wrapper {
+    position: relative;
+    overflow: clip;
+
+    .desktop {
+        height: 93.692rem;
+        width: 99.163rem;
+        position: absolute;
+        top: -14.613rem;
+        right: -33.563rem;
+        z-index: -2;
+    }
+
+    .tablet {
+        display: none;
+    }
+}
+
+.nav {
+    padding-top: 2.4rem;
+}
+
+.nav, .footer {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        width: 11.4rem;
+        height: auto;
+    }
+}
+
+.main {
+    margin-top: 8.7rem;
+}
+
+.skill {
+    margin-bottom: 25rem;
+    &__wrapper {
+        display: flex;
+        position: relative;
+    }
+
+    &__info {
+        padding-top: 8.5rem;
+        width: 45.7rem
+    }
+
+    &__heading {
+        @include heading-xl;
+        margin-bottom: 2.9rem;
+    }
+
+    &__text {
+        @include body-md;
+        margin-bottom: 4rem;
+        padding-right: 1.2rem;
+    }
+
+    &__img {
+        display: none;
+    }
+}
+
+.cards {
+    padding-bottom: 14rem;
+    background: $gradient-light-blue;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8rem 3rem;
+    }
+}
+
+.card {
+    width: 35rem;
+    height: 32.2rem;
+    padding: 6.4rem 3.2rem 0;
+    border-radius: 1.5rem;
+
+    &--main {
+        background: $gradient-red;
+
+        &__heading {
+            @include heading-md;
+            color: $white;
+        }
+    }
+
+    &--plain {
+        background: $white;
+        position: relative;
+        box-shadow: 0px 2.5rem 5rem rgba(6, 22, 141, 0.0442381);
+
+        &__icon {
+            width: 5.6rem;
+            height: 5.6rem;
+            position: absolute;
+            left: 3.2rem;
+            top: -2.4rem;
+            background: $deep-red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        &__heading {
+            @include heading-sm;
+            margin-bottom: 2.4rem;
+        }
+
+        &__text {
+            @include body-md;
+            margin-bottom: 2.4rem;
+            height: 11.2rem;
+        }
+
+        &__link {
+            text-decoration: none;
+            font-weight: $fw-700;
+            font-size: 1.8rem;
+            line-height: 2.8rem;
+            color: $deep-red;
+        }
+    }
+}
+
+.footer {
+    background: $dark-blue;
+
+    &__wrapper {
+        height: 12rem;
+    }
+    
+}
 
 @media screen and (max-width: $desktop) {
     body, html {
@@ -89,9 +268,183 @@ body, html {
     }
 }
 
+@media screen and (max-width: $tablet) {
+    body, html {
+        font-size: 10px;
+    }
+
+    .btn {
+        font-size: 1.6rem;
+
+        &--primary, &--tetiary {
+            width: 14rem;
+            height: 4.8rem;
+        }
+
+        &--secondary {
+            line-height: 2.6rem;
+        }
+    }
+    
+    .container {
+        width: 68.9rem;
+    }
+    
+    .body__wrapper {
+        position: relative;
+        overflow: clip;
+    
+        .desktop {
+            display: none;
+        }
+
+        .tablet {
+            display: inline-block;
+            height: 64.071rem;
+            width: 64rem;
+            position: absolute;
+            top: -5rem;
+            right: -24rem;
+            z-index: -2;
+        }
+    }
+
+    .nav, .footer { 
+        &__logo {
+            width: 8.9rem;
+        }
+    }
+    
+    .main {
+        margin-top: 4.9rem;
+    }
+    
+    .skill {
+        margin-bottom: 21rem;
+    
+        &__info {
+            padding-top: 5rem;
+            width: 39.8rem
+        }
+    
+        &__heading {
+            @include heading-lg;
+            margin-bottom: 2.5rem;
+        }
+    
+        &__text {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            margin-bottom: 2.4rem;
+            padding-right: 0rem;
+        }
+    }
+    
+    .cards {
+        padding-bottom: 8.6rem;
+        &__wrapper {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 5.6rem 1rem;
+        }
+    }
+    
+    .card {
+        width: 33.9rem;
+        height: 25.9rem;
+        padding: 5.6rem 2.2rem 0 3.2rem;
+        border-radius: 1rem;
+    
+        &--main {
+            &__heading {
+                font-size: 2.4rem;
+                line-height: 3.2rem;
+            }
+        }
+    
+        &--plain {
+            &__heading {
+                font-size: 2rem;
+                line-height: 2.52rem;
+                margin-bottom: 1.6rem;
+            }
+    
+            &__text {
+                font-size: 1.6rem;
+                line-height: 2.6rem;
+                margin-bottom: 2.4rem;
+                height: initial;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: $mobile-wide) {
     body, html {
         font-size: 11.04px;
+    }
+    
+    .container {
+        width: 34.3rem;
+    }
+    
+    .body__wrapper {
+        .tablet {
+            display: none;
+        }
+    }
+    
+    .nav {
+        padding-top: 1.6rem;
+    }
+    
+    .main {
+        margin-top: 3.8rem;
+    }
+    
+    .skill {
+        margin-bottom: 6.6rem;
+        &__wrapper {
+            flex-direction: column;
+        }
+    
+        &__info {
+            padding-top: 0;
+            width: initial;
+            margin-bottom: 4.6rem;
+        }
+
+        &__text {
+            span {
+                display: inline-block;
+                width: 3rem;
+            }
+        }
+    }
+    
+    .cards {
+        padding-bottom: 8rem;
+        &__wrapper {
+            grid-template-columns: 1fr;
+            gap: 4rem 0;
+        }
+    }
+    
+    .card {
+        width: initial;
+        height: initial;
+        padding: {
+            left: 2.8rem;
+            right: 2.9rem;
+            bottom: 3.2rem;
+        };
+    
+        &--main {
+            padding: 2.4rem;
+        }
+    
+        &--plain {
+            padding-top: 5.6rem;
+        }
     }
 }
 
