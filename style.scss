@@ -70,10 +70,7 @@ $desktop: 1280px;
 }
 
 .btn {
-    padding: {
-        left: 3.2rem;
-        right: 3.1rem;
-    };
+    width: 16.7rem;
     border: none;
     outline: none;
     color: $white;
@@ -91,21 +88,14 @@ $desktop: 1280px;
     }
 
     &--primary, &--tetiary {
-        padding: {
-            top: 1.4rem;
-            bottom: 1.4rem;
-        };    
+        height: 5.6rem;
         border-radius: 2.8rem;
     }
 
     &--secondary {
         background: $gradient-red;
         border-radius: 3.15rem;
-
-        padding: {
-            top: 1.9rem;
-            bottom: 1.6rem;
-        };
+        height: 6.3rem;
 
         &:active {
             background: $gradient-red-active;
@@ -190,7 +180,7 @@ body, html {
 
     &__heading {
         @include heading-xl;
-        margin-bottom: 3rem;
+        margin-bottom: 3.1rem;
     }
 
     &__text {

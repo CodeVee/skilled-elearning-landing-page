@@ -1,6 +1,5 @@
 .btn {
-  padding-left: 3.2rem;
-  padding-right: 3.1rem;
+  width: 16.7rem;
   border: none;
   outline: none;
   color: hsl(0deg, 0%, 100%);
@@ -16,15 +15,13 @@
   background: hsl(234deg, 25%, 52%);
 }
 .btn--primary, .btn--tetiary {
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
+  height: 5.6rem;
   border-radius: 2.8rem;
 }
 .btn--secondary {
   background: linear-gradient(180deg, hsl(13deg, 100%, 64%) 0%, hsl(322deg, 87%, 55%) 100%);
   border-radius: 3.15rem;
-  padding-top: 1.9rem;
-  padding-bottom: 1.6rem;
+  height: 6.3rem;
 }
 .btn--secondary:active {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), linear-gradient(180deg, hsl(13deg, 100%, 64%) 0%, hsl(322deg, 87%, 55%) 100%);
@@ -102,7 +99,7 @@ body, html {
   font-weight: 800;
   font-size: 5.6rem;
   line-height: 7rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.1rem;
 }
 .skill__text {
   color: hsl(232deg, 10%, 56%);
